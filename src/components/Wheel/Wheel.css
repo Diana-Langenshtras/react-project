@@ -1,0 +1,18 @@
+.wheel {
+}
+
+.wheel.is-clicked .wheel-circle {
+    animation: 1s linear rotate;
+    transform-origin: 50% 50%;
+    transform-box: fill-box;
+}
+  
+  @keyframes rotate {
+    0% {
+        transform: rotateZ(0deg);
+      }
+    
+      100% {
+        transform: rotateZ(360deg);
+      }
+  }

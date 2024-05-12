@@ -1,0 +1,63 @@
+.page {
+    min-block-size: 100dvb;
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-home {
+  padding-top: 110px;
+  gap: 33px;
+}
+
+.main-settings {
+  padding-top: 26px;
+  gap: 16px;
+  align-items: start;
+}
+
+.navlink {
+  text-decoration: none;
+}
+
+.section__title {
+  margin: 0;
+  font-family: var(--font-family);
+  font-weight: 900;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: var(--shadow-secondary-color);
+}
+
+.section {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(2, auto);
+  column-gap: 55px;
+  row-gap: 17px;
+  align-items: center;
+  justify-content: center;
+}
+
+.section__list {
+  padding-left: 0;
+  list-style-type: none;
+  /* Занимает один ряд и
+  растягивается на две колонки */
+  grid-column-start: 1;
+  grid-column-end: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+}

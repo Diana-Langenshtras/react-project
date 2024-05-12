@@ -1,0 +1,62 @@
+.button {
+    border-radius: 17px;
+    border: none;
+    border-color: transparent;
+    color: var(--text-color);
+    font-family: var(--font-family);
+    font-weight: 900;
+    text-transform: uppercase;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+}
+
+.main__button:hover {
+    cursor: pointer;
+}
+
+.main__button-wheel {
+    padding: 13px 37px;
+    box-shadow: 0 4px 0 0 var(--shadow-primary-color);
+    background: var(--primary-color);
+    font-size: 17px;
+}
+
+.main__button-settings {
+    padding: 8px 24px;
+    box-shadow: 0 4px 0 0 var(--shadow-secondary-color);
+    background: var(--secondary-color);
+    font-size: 13px;
+    gap: 12px;
+    color: var(--text-color);
+}
+
+.main__button-back {
+    padding: 13px 29px;
+    box-shadow: 0 4px 0 0 var(--shadow-primary-color);
+    background: var(--primary-color);
+    font-size: 13px;
+    gap: 7px;
+}
+
+.card__button {
+    padding: 7px 19px;
+    width: 100%;
+    background-color: transparent;
+    color: var(--not-active-color);
+    justify-content: space-between;
+}
+
+.section__button {
+    padding: 8px 24px;
+    box-shadow: 0 4px 0 0 var(--shadow-secondary-color);
+    background: var(--secondary-color);
+}
+
+@media (width >= 1024px) {
+    /*.main__button-settings {
+        align-self: end;
+        order: -1;
+    }*/
+}

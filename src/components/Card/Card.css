@@ -1,0 +1,16 @@
+.card:first-child {
+    border: 1px solid var(--not-active-color);
+    border-radius: 17px 17px 0 0;
+}
+
+.card {
+    border: 1px solid var(--not-active-color);
+    width: 100%;
+}
+
+.card:last-child {
+    border: 1px solid var(--not-active-color);
+    border-radius: 0 0 17px 17px;
+}
+
+

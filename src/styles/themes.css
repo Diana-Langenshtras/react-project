@@ -1,0 +1,29 @@
+/* В этом файле вы опишете значения переменных в разных цветовых схемах.
+
+✦ theme-dark — класс тёмной темы
+✦ theme-light — класс светлой темы
+
+*/
+:root.theme-light {
+    --font-family: "Cygre Black", sans-serif;
+    --second-family: "Inter", sans-serif;
+  }
+  
+@media (prefers-color-scheme: light) {
+  :root {
+    --font-family: "Cygre Black", sans-serif;
+    --second-family: "Inter", sans-serif;
+    }
+}
+
+:root.theme-dark {
+    --font-family: "Cygre Black", sans-serif;
+    --second-family: "Inter", sans-serif;
+  }
+  
+@media (prefers-color-scheme: dark) {
+  :root {
+    --font-family: "Cygre Black", sans-serif;
+    --second-family: "Inter", sans-serif;
+    }
+}

@@ -1,0 +1,13 @@
+/* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+:root {
+    --font-family: "Cygre Black", sans-serif;
+    --second-family: "Inter", sans-serif;
+    --font-weight: 900;
+    --bg-color: #f2eacc;
+    --text-color: #fff;
+    --primary-color: #ff573b;
+    --secondary-color: #5acc65;
+    --shadow-primary-color: #9f4132;
+    --shadow-secondary-color: #338a3c;
+    --not-active-color: rgba(159, 65, 50, 0.5);
+  }
