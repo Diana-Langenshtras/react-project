@@ -106,5 +106,25 @@
   width: 100%;
   margin: 0;
   background: var(--primary-color);
+}
 
+.dialog {
+  border: 8px solid #5acc65;
+  border-radius: 34px;
+  width: 247px;
+  height: 231px;
+  box-shadow: 0 4px 0 0 #338a3c;
+  background: #f2eacc;
+  padding: 0;
+  box-sizing: border-box;
+  padding: 31px 42px;
+  left: 14px;
+}
+
+.dialog__title {
+  font-family: var(--font-family);
+  font-weight: 900;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: var(--primary-color);
 }

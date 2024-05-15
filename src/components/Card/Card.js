@@ -12,11 +12,11 @@ import { Component } from 'react';
 export class Card extends Component {
 
     render(){
-    const classes = classNames('', this.props.className);
+    const classes = classNames('card', this.props.className);
 
     return (
-        <li className="card">
-            <Button className="card__button" onClick={console.log('fdf')}>
+        <li className={classes}>
+            <Button className="card__button" onClick={this.props.onClick}>
                 <h2 className="card__title">{this.props.card.title}</h2>
                 <Link to={{ pathname: '/settings-card'}} state={{from: this.props.card}} className="navlink-card">
                     <IconSettings />

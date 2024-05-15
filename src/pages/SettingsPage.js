@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 
+import "../styles/global.css"
 import "../styles/variables.css";
 import "../styles/themes.css";
 import "../styles/style.css";
@@ -12,7 +13,15 @@ import Card from '../components/Card/Card';
 import { Component } from 'react';
 
 export class SettingsPage extends Component {
+    constructor(props) {
+      super(props);
+      
+  }
     render(){
+
+        let timer = null;
+
+        let className = '';
 
     const copyTextToClipboard = async (text) => {
         try {
@@ -22,6 +31,17 @@ export class SettingsPage extends Component {
           console.error('Ошибка:', err);
         }
       };
+
+    function update(id){
+        const list = document.querySelector('.section__list');
+        const children = list.querySelectorAll('.is-clicked');
+        children.forEach(el => {
+            el.classList.remove('is-clicked');
+        });
+        const child = list.children[id];
+       child.classList.add('is-clicked'); 
+    }
+    
 
     return (
 		<main className="main main-settings">
@@ -40,13 +60,15 @@ export class SettingsPage extends Component {
             </div>
             <section className="section section-settings">
                 <p className="section__title">ваши наборы</p>
-                <Button className="section__button">
+                <Button className="section__button" onClick={() => {this.props.addCard('dhs')}}>
+                    {console.log(this.props.cards)}
                     <IconAdd />
                 </Button>
                 <ul className="section__list">
-                    {this.props.cards.map(el => (
-                        <Card card={el}/>
-                    ))}
+                    {this.props.cards.map((el, index) => {
+                        if(el.id === this.props.activeCard) className = "is-clicked"; else className = "";
+                        return <Card className={className} card={el} onClick={() => {this.props.updateActiveCard(el.id); update(el.id-1); console.log(this.props.activeCard)}}/>
+    })}
                 </ul>
 
             </section>

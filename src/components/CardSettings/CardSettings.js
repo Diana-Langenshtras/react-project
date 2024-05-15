@@ -16,7 +16,7 @@ export class CardSettings extends Component {
 
     return (
         <li className="card-settings">
-            <Button className="card__button card-settings__button" onClick={console.log('fdf')}>
+            <Button className="card__button card-settings__button" onClick={this.props.onClick}>
                 <h2 className="card-settings__title">{this.props.card}</h2>
                 <Link to={{ pathname: '/'}} state={{from: this.props.card}} className="navlink-settings">
                     <IconSettings />

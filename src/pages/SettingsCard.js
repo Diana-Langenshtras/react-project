@@ -4,6 +4,7 @@ import Card from '../components/Card/Card';
 
 import {useLocation} from "react-router";
 
+import "../styles/global.css"
 import "../styles/variables.css";
 import "../styles/themes.css";
 import "../styles/style.css";

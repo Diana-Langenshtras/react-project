@@ -33,6 +33,19 @@
     justify-content: space-between;
 }
 
+.card.is-clicked {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+.card.is-clicked .navlink-card{
+    color: var(--text-color);
+}
+
+.card.is-clicked .card__title{
+    color: var(--text-color);
+}
+
 .navlink-card {
     color: var(--not-active-color);
     max-height: 30px;
