@@ -1,6 +1,3 @@
-.wheel {
-}
-
 .wheel.is-clicked .wheel-circle {
     animation: 1s linear rotate;
     transform-origin: 50% 50%;

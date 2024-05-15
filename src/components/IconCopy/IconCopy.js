@@ -1,4 +1,4 @@
-import { ReactComponent as Icon } from './settings-01.svg';
+import { ReactComponent as Icon } from './IconCopy.svg';
 
 const IconSettings = () => {
 

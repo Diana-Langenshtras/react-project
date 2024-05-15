@@ -23,10 +23,35 @@
   padding-top: 26px;
   gap: 16px;
   align-items: start;
+  min-width: 300px;
+}
+
+.main-settings-card {
+  padding-top: 26px;
+  row-gap: 30px;
+  column-gap: 88px;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(2, auto);
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .navlink {
   text-decoration: none;
+}
+
+.invite {
+  width: 100%;
+}
+
+.invite__text {
+  font-family: var(--second-family);
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 143%;
+  color: #000;
 }
 
 .section__title {
@@ -36,19 +61,22 @@
   font-size: 20px;
   text-transform: uppercase;
   color: var(--shadow-secondary-color);
+  white-space: nowrap;
 }
 
 .section {
   display: grid;
   grid-template-columns: repeat(2, auto);
   grid-template-rows: repeat(2, auto);
-  column-gap: 55px;
+  width: 100%;
   row-gap: 17px;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .section__list {
+  width: 100%;
+  margin: 0;
   padding-left: 0;
   list-style-type: none;
   /* Занимает один ряд и
@@ -58,6 +86,25 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   gap: 3px;
+}
+
+.list__title {
+  margin: 0;
+  font-family: var(--font-family);
+  font-weight: 900;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: var(--text-color);
+  padding: 13px 21px 13px;
+}
+
+.list__title-wrapper {
+  border-radius: 17px 17px 0 0;
+  border: none;
+  width: 100%;
+  margin: 0;
+  background: var(--primary-color);
+
 }

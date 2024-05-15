@@ -12,6 +12,10 @@
     align-items: center;
 }
 
+.button:hover {
+    cursor: pointer;
+}
+
 .main__button:hover {
     cursor: pointer;
 }
@@ -40,16 +44,28 @@
     gap: 7px;
 }
 
-.card__button {
-    padding: 7px 19px;
+.invite__button {
+    color: black;
+    border: 1px solid var(--shadow-primary-color);
+    border-radius: 17px;
+    padding: 13px 18.5px;
     width: 100%;
+    box-shadow: 0 4px 0 0 var(--shadow-primary-color), inset 0 0 4px 0 rgba(196, 61, 50, 0.69);
     background-color: transparent;
-    color: var(--not-active-color);
     justify-content: space-between;
+    font-family: var(--second-family);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 143%;
+    text-transform: lowercase;
+}
+
+.invite__button-text {
+  text-align: center;
 }
 
 .section__button {
-    padding: 8px 24px;
+    padding: 10px 26px;
     box-shadow: 0 4px 0 0 var(--shadow-secondary-color);
     background: var(--secondary-color);
 }

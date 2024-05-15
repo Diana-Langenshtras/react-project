@@ -8,7 +8,10 @@ import Button from '../components/Button/Button'
 import Wheel from "../components/Wheel/Wheel";
 import IconSettings from "../components/IconSettings/IconSettings";
 
-const HomePage = () => {
+import { Component } from 'react';
+
+export class HomePage extends Component {
+    render(){
 
     let timer = null;
 
@@ -30,6 +33,7 @@ const HomePage = () => {
             </NavLink>
       </main>
 	);
+}
 }
 
 export default HomePage;

@@ -1,7 +1,7 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
 :root {
     --font-family: "Cygre Black", sans-serif;
-    --second-family: "Inter", sans-serif;
+    --second-family: "Inter-Variable", sans-serif;
     --font-weight: 900;
     --bg-color: #f2eacc;
     --text-color: #fff;
