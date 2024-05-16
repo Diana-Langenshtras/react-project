@@ -2,7 +2,9 @@
     border: 1px solid var(--shadow-primary-color);
     width: 100%;
     justify-content: space-between;
-    max-width: 297px;
+    display: flex;
+    flex-direction: row;
+    padding: 8px 21px;
 }
 
 .card-settings:last-child {
@@ -24,7 +26,8 @@
 
 .navlink-settings {
     color: var(--shadow-primary-color);
-    height: 30px;
+    height: 22px;
 }
+
 
 

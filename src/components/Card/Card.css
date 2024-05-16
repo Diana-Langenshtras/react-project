@@ -1,15 +1,15 @@
+.card:last-child {
+    border-radius: 0 0 17px 17px;
+}
+
 .card:first-child {
     border-radius: 17px 17px 0 0;
 }
 
 .card {
-    border: 1px solid var(--not-active-color);
+    border: 1px solid var(--shadow-primary-color);
     width: 100%;
     max-width: 297px;
-}
-
-.card:last-child {
-    border-radius: 0 0 17px 17px;
 }
 
 .card__title {
@@ -22,11 +22,11 @@
     font-weight: 900;
     font-size: 13px;
     text-transform: uppercase;
-    color: var(--not-active-color);
+    color: var(--shadow-primary-color);
 }   
 
 .card__button {
-    padding: 5px 19px;
+    padding: 8px 21px;
     width: 100%;
     background-color: transparent;
     color: var(--not-active-color);
@@ -47,7 +47,20 @@
 }
 
 .navlink-card {
-    color: var(--not-active-color);
-    max-height: 30px;
+    color: var(--shadow-primary-color);
+    max-height: 22px;
 }
 
+.card__icons {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 11px;
+}
+
+.card__icon-bin {
+    color: var(--shadow-primary-color);
+}
+
+.card.is-clicked .card__icon-bin{
+    color: var(--text-color);
+}

@@ -2,6 +2,7 @@ import React from "react";
 
 import { BrowserRouter as BrowserRouter, Route, Routes} from 'react-router-dom';
 
+import "./fonts/fonts.css";
 import "./styles/global.css"
 import "./styles/variables.css";
 import "./styles/themes.css";
@@ -19,6 +20,8 @@ class App extends React.Component {
     super(props);
     this.updateActiveCard = this.updateActiveCard.bind(this);
     this.addCard = this.addCard.bind(this);
+    this.deleteSet = this.deleteSet.bind(this);
+    this.deleteExercise = this.deleteExercise.bind(this);
     this.state = {
       cards: cards,
       activeCard: 1,
@@ -31,13 +34,30 @@ class App extends React.Component {
 
   addCard(value){
     const newArray = {
-      id: cards.length+1,
+      id: this.state.cards.length+1,
       title: value,
-      exercises: ['Бокс', 'Бег', 'Ходьба'],
+      exercises: [],
   };
     const newCards = this.state.cards;
     this.setState({cards: newCards.concat(newArray)});
   }
+
+  deleteSet(id){
+    const newCards = this.state.cards;
+    newCards.splice(id-1, 1);
+    newCards.map((el, index) => {
+      el.id = index + 1;
+    })
+    this.setState({cards: newCards});
+  }
+
+  deleteExercise(id){
+    const newCards = this.state.cards;
+    newCards.exercises.splice(id, 1);
+    this.setState({cards: newCards});
+    console.log("1");
+  }
+
 
   render() {
 
@@ -47,8 +67,8 @@ class App extends React.Component {
     <div className="App">
       <BrowserRouter>
 				<Routes>
-					<Route path="/settings" element={<SettingsPage cards={this.state.cards} updateActiveCard={this.updateActiveCard} activeCard={this.state.activeCard} addCard={this.addCard}/>} />
-          <Route path="/settings-card" element={<SettingsCard cards={this.state.cards}/>} />
+					<Route path="/settings" element={<SettingsPage cards={this.state.cards} updateActiveCard={this.updateActiveCard} activeCard={this.state.activeCard} addCard={this.addCard} deleteSet={this.deleteSet} deleteExercise={this.deleteExercise}/>} />
+          <Route path="/settings-card" element={<SettingsCard cards={this.state.cards}/>} deleteExercise={this.deleteExercise}/>
           <Route path="/" element={<HomePage cards={this.state.cards} activeCard={this.state.activeCard}/>} />
 				</Routes>
 			</BrowserRouter>

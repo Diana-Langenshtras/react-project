@@ -8,6 +8,7 @@ import IconSettings from '../IconSettings/IconSettings';
 
 import Button from '../Button/Button'
 import { Component } from 'react';
+import IconBin from '../IconBin/IconBin';
 
 export class CardSettings extends Component {
 
@@ -16,12 +17,13 @@ export class CardSettings extends Component {
 
     return (
         <li className="card-settings">
-            <Button className="card__button card-settings__button" onClick={this.props.onClick}>
                 <h2 className="card-settings__title">{this.props.card}</h2>
-                <Link to={{ pathname: '/'}} state={{from: this.props.card}} className="navlink-settings">
-                    <IconSettings />
-                </Link>
-            </Button>
+                <div className="card__icons">
+                    <Link to={{ pathname: '/'}} state={{from: this.props.card}} className="navlink-settings">
+                        <IconSettings />
+                    </Link>
+                    <Button className="card__icon-bin" onClick={console.log('1')}><IconBin/></Button>
+                </div>
         </li>
      //   <button className={classes} onClick={onClick}>{children}</button>
     )
