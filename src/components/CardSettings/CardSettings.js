@@ -22,7 +22,7 @@ export class CardSettings extends Component {
                     <Link to={{ pathname: '/'}} state={{from: this.props.card}} className="navlink-settings">
                         <IconSettings />
                     </Link>
-                    <Button className="card__icon-bin" onClick={console.log('1')}><IconBin/></Button>
+                    <Button className="card__icon-bin" onClick={this.props.onClick}><IconBin/></Button>
                 </div>
         </li>
      //   <button className={classes} onClick={onClick}>{children}</button>

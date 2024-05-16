@@ -4,7 +4,6 @@ import Card from '../components/Card/Card';
 
 import {useLocation} from "react-router";
 
-import "../fonts/fonts.css";
 import "../styles/global.css"
 import "../styles/variables.css";
 import "../styles/themes.css";
@@ -17,10 +16,11 @@ import Button from '../components/Button/Button'
 import CardSettings from '../components/CardSettings/CardSettings';
 
 
-const SettingsCard = props =>{
+const SettingsCard = ({cards, deleteExercise}) =>{
        // const classes = classNames('', this.props.className);
        const location = useLocation();
        const { state } = location;
+       
 
         return (
            // <div>{state.from.title}</div>
@@ -37,8 +37,8 @@ const SettingsCard = props =>{
 
                 <ul className="section__list">
                 <div className="list__title-wrapper"><h1 className="list__title">{state.from.title}</h1></div>
-                  {state.from.exercises.map(el => (
-                        <CardSettings card={el}/>
+                  {state.from.exercises.map((el, index) => (
+                        <CardSettings card={el} onClick={() => deleteExercise(state.from.id-1,index)}/>
                     ))}
                 </ul>
             </main>

@@ -51,11 +51,14 @@ class App extends React.Component {
     this.setState({cards: newCards});
   }
 
-  deleteExercise(id){
-    const newCards = this.state.cards;
-    newCards.exercises.splice(id, 1);
-    this.setState({cards: newCards});
+  deleteExercise(id, index){
     console.log("1");
+    const newCards = this.state.cards;
+
+    newCards[id].exercises.splice(index, 1);
+
+    console.log(newCards);
+    this.setState({cards: newCards});
   }
 
 
@@ -68,7 +71,7 @@ class App extends React.Component {
       <BrowserRouter>
 				<Routes>
 					<Route path="/settings" element={<SettingsPage cards={this.state.cards} updateActiveCard={this.updateActiveCard} activeCard={this.state.activeCard} addCard={this.addCard} deleteSet={this.deleteSet} deleteExercise={this.deleteExercise}/>} />
-          <Route path="/settings-card" element={<SettingsCard cards={this.state.cards}/>} deleteExercise={this.deleteExercise}/>
+          <Route path="/settings-card" element={<SettingsCard cards={this.state.cards} deleteExercise={this.deleteExercise}/>} />
           <Route path="/" element={<HomePage cards={this.state.cards} activeCard={this.state.activeCard}/>} />
 				</Routes>
 			</BrowserRouter>
