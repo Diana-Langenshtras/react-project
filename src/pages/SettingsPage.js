@@ -91,9 +91,11 @@ export class SettingsPage extends Component {
 
             </section>
             <dialog aria-label="Новая карта" className="card__dialog">
+            <div className="card__dialog-wrapper">
                 <label for="name" className='visually-hidden'>Введите название (от 1 до 8 символов):</label>
-                <input type="text" id="name" name="name" required minlength="1" maxlength="8" size="10" className="card__dialog-text"/>
+                <input type="text" id="name" name="name" required minlength="1" maxlength="8" size="10" className="card__dialog-text" placeholder="Введите название"/>
                 <Button className="card__dialog-button" onClick={() => {closeDialog(); this.props.addCard(setValue()); document.querySelector(".card__dialog-text").value =""}}>Создать</Button>
+            </div>
             </dialog>
 		</main>
 	);

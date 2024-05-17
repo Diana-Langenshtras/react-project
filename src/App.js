@@ -79,6 +79,8 @@ class App extends React.Component {
     this.setState({images: newImages});
   }
 
+  
+
 
   render() {
 

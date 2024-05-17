@@ -132,6 +132,15 @@
   left: 14px;
 }
 
+.dialog-wrapper {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
 .dialog__title {
   font-family: var(--font-family);
   font-weight: 900;
@@ -143,11 +152,36 @@
 .card__dialog{
   border: 2px solid var(--shadow-primary-color);
   border-radius: 16px;
-  width: 298px;
-  height: 186px;
+  min-width: 310px;
+  min-height: 186px;
   background: var(--bg-color);
   top: 30%;
+  padding: 33px 25px;
 }
+
+.card__dialog-wrapper {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 31px;
+}
+
+.card__dialog-text {
+  border: none;
+  border-bottom: 2px solid var(--not-active-color);
+  padding: 7px;
+  background: transparent;
+  width: 100%;
+  font-family: var(--font-family);
+  font-weight: 900;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: var(--not-active-color);
+}
+
+
 
 .card-settings__dialog {
   border: none;
@@ -158,18 +192,40 @@
 }
 
 .card-settings__dialog-wrapper{
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 31px;
+  width: 296px;
+}
+
+.card-settings__dialog-text {
+  border: none;
+  border-bottom: 2px solid var(--not-active-color);
+  padding: 7px;
+  background: transparent;
+  width: 100%;
+  font-family: var(--font-family);
+  font-weight: 900;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: var(--not-active-color);
+}
+
+input::-moz-placeholder { color: var(--not-active-color); }
+input::-webkit-input-placeholder { color: var(--not-active-color); }
+
+.input-name.incorrect {
+  border: 2px solid red;
 }
 
 .form-wrapper {
   border-radius: 16px;
   width: 291px;
   height: 175px;
-  background-color: var(--not-active-color);
+  background-color: var(--not-active-bg-color);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -181,10 +237,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #ffffff;
+  color: var(--shadow-primary-color);
   cursor: pointer;
  /* padding: 63px 121px; */
   border-radius: 16px;
+}
+
+.filename {
+  color: var(--shadow-primary-color);
 }
 
 .form__input {
@@ -209,6 +269,6 @@
   justify-content: center;
   gap: 10px;
   width: 291px;
-    height: 175px;
-
+  height: 175px;
 }
+

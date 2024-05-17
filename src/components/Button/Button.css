@@ -89,6 +89,20 @@
     cursor: none;
 }
 
+.card__dialog-button {
+    background-color: var(--primary-color);
+    border-bottom: 4px solid var(--shadow-primary-color);
+    border-radius: 17px;
+    padding: 13px 16px;
+}
+
+.card-settings__dialog-button {
+    border-radius: 17px;
+    padding: 13px 16px;
+    background-color: var(--primary-color);
+    box-shadow: 0 4px 0 0 var(--shadow-primary-color);
+  }
+
 @media (width >= 1024px) {
     /*.main__button-settings {
         align-self: end;

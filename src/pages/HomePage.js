@@ -20,11 +20,11 @@ export class HomePage extends Component {
 
     
 
-    const openDialog = (() => {
+    const openDialog = ((cards, activeCard) => {
         const dialog = document.querySelector('.dialog');
       //  dialog.querySelector('.dialog__image').src = cardData.link;
      //   dialog.querySelector('.dialog__image').alt = cardData.name;
-        dialog.querySelector('.dialog__title').textContent = 'cardData.title';
+        dialog.querySelector('.dialog__title').textContent = chooseExercise(cards, activeCard);
         document.querySelector('.main__button-wheel').classList.add('hidden');
         document.querySelector('.main__button-settings').classList.add('hidden');
         document.querySelector('.main__button-back').classList.remove('hidden');
@@ -39,12 +39,20 @@ export class HomePage extends Component {
         dialog.close();
     })
 
-    const buttonIsClicked = (() => {
+    const buttonIsClicked = ((cards, activeCard) => {
         document.querySelector('.wheel').classList.add('is-clicked'); 
         clearTimeout(timer);
-        timer = setTimeout(() => {document.querySelector('.wheel').classList.remove('is-clicked'); openDialog();}, 1000);
+        timer = setTimeout(() => {document.querySelector('.wheel').classList.remove('is-clicked'); openDialog(cards, activeCard);}, 1000);
         
     })
+
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+      }
+
+    function chooseExercise(cards, activeCard){
+        return cards[activeCard].exercises[getRandomInt(cards[activeCard].exercises.length-1)];
+    }
 
     return (
 		<main className="main main-home">
@@ -53,7 +61,7 @@ export class HomePage extends Component {
                 <span>Назад</span>
                 <IconBack />
             </Button> 
-            <Button className="main__button-wheel" onClick={buttonIsClicked}>Крутить колесо</Button>
+            <Button className="main__button-wheel" onClick={() => {buttonIsClicked(this.props.cards, this.props.activeCard);}}>Крутить колесо</Button>
             <NavLink to="/settings" className="navlink">
                 <Button className="main__button-settings">
                     <span>Настройки</span>
@@ -61,8 +69,10 @@ export class HomePage extends Component {
                 </Button>
             </NavLink>
             <dialog aria-label="Упражение" className="dialog">
-                <p className="dialog__title"></p>
-                <img className="dialog__image" src="img.png" alt="Упражнение" />
+                <div className="dialog-wrapper">
+                    <p className="dialog__title"></p>
+                    <img className="dialog__image" src="/images/img.png" alt="Упражнение" />
+                </div>
             </dialog>
             <template id="button-template">
             </template>
