@@ -13,6 +13,7 @@ import SettingsPage from "./pages/SettingsPage";
 
 import cards from "./cards";
 import SettingsCard from "./pages/SettingsCard";
+import CardSettings from "./components/CardSettings/CardSettings";
 
 
 class App extends React.Component {
@@ -73,6 +74,7 @@ class App extends React.Component {
 					<Route path="/settings" element={<SettingsPage cards={this.state.cards} updateActiveCard={this.updateActiveCard} activeCard={this.state.activeCard} addCard={this.addCard} deleteSet={this.deleteSet} deleteExercise={this.deleteExercise}/>} />
           <Route path="/settings-card" element={<SettingsCard cards={this.state.cards} deleteExercise={this.deleteExercise}/>} />
           <Route path="/" element={<HomePage cards={this.state.cards} activeCard={this.state.activeCard}/>} />
+          
 				</Routes>
 			</BrowserRouter>
     </div>

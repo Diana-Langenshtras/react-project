@@ -4,6 +4,8 @@ import Card from '../components/Card/Card';
 
 import {useLocation} from "react-router";
 
+import { useState } from 'react';
+
 import "../styles/global.css"
 import "../styles/variables.css";
 import "../styles/themes.css";
@@ -15,11 +17,14 @@ import IconAdd from '../components/IconAdd/IconAdd';
 import Button from '../components/Button/Button'
 import CardSettings from '../components/CardSettings/CardSettings';
 
+import { useReducer } from 'react';
+
 
 const SettingsCard = ({cards, deleteExercise}) =>{
        // const classes = classNames('', this.props.className);
        const location = useLocation();
        const { state } = location;
+       const [, forceUpdate] = useReducer(x => x + 1, 0);
        
 
         return (
@@ -37,17 +42,12 @@ const SettingsCard = ({cards, deleteExercise}) =>{
 
                 <ul className="section__list">
                 <div className="list__title-wrapper"><h1 className="list__title">{state.from.title}</h1></div>
-                  {state.from.exercises.map((el, index) => (
-                        <CardSettings card={el} onClick={() => deleteExercise(state.from.id-1,index)}/>
+                  {cards[state.from.id-1].exercises.map((el, index) => (
+                        <CardSettings card={el} onDelete={() => {deleteExercise(state.from.id-1,index); forceUpdate()}}/>
                     ))}
                 </ul>
             </main>
         )
-    }
-    
-    Card.defaultProps = {
-        className: '',
-        onClick: () => {},
     }
     
 export default SettingsCard;

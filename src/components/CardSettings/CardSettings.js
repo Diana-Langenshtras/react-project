@@ -15,6 +15,7 @@ export class CardSettings extends Component {
     render(){
     const classes = classNames('', this.props.className);
 
+    
     return (
         <li className="card-settings">
                 <h2 className="card-settings__title">{this.props.card}</h2>
@@ -22,7 +23,7 @@ export class CardSettings extends Component {
                     <Link to={{ pathname: '/'}} state={{from: this.props.card}} className="navlink-settings">
                         <IconSettings />
                     </Link>
-                    <Button className="card__icon-bin" onClick={this.props.onClick}><IconBin/></Button>
+                    <Button className="card__icon-bin" onClick={this.props.onDelete}><IconBin/></Button>
                 </div>
         </li>
      //   <button className={classes} onClick={onClick}>{children}</button>
