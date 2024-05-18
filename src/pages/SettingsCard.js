@@ -88,7 +88,7 @@ const SettingsCard = ({cards, deleteExercise, addExercise, changeExercise, addIm
                 <div className="list__title-wrapper"><h1 className="list__title">{state.from.title}</h1></div>
                 {cards[state.from.id-1].exercises.map((el, index) => (
                         <CardSettings key={index} card={el} onDelete={() => {deleteExercise(state.from.id-1,index)}} 
-                        id={state.from.id-1}
+                        id={state.from.id-1} cardIndex={index}
                         onChange={changeExercise}/>
                     ))}
                 </ul>

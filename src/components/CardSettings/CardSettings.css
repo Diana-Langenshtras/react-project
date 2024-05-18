@@ -1,13 +1,15 @@
-.card-settings {
+.card-settings-wrapper {
     border: 1px solid var(--shadow-primary-color);
     width: 100%;
+}
+.card-settings {
     justify-content: space-between;
     display: flex;
     flex-direction: row;
     padding: 8px 21px;
 }
 
-.card-settings:last-child {
+.card-settings-wrapper:last-child {
     border-radius: 0 0 17px 17px;
 }
 

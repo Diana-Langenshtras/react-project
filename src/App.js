@@ -15,6 +15,8 @@ import cards from "./cards";
 import SettingsCard from "./pages/SettingsCard";
 import CardSettings from "./components/CardSettings/CardSettings";
 
+import axios from "axios";
+
 
 class App extends React.Component {
   constructor(props){
@@ -48,6 +50,11 @@ class App extends React.Component {
         },
       ],
     }
+  }
+
+  componentDidMount(){
+    let data;
+    
   }
 
   updateActiveCard(value) {
@@ -85,14 +92,11 @@ class App extends React.Component {
     this.setState({cards: newCards});
   }
 
-  changeExercise(id, name, value){
+  changeExercise(id, index, value){
     const newCards = this.state.cards;
-    newCards[id].exercises.map(item => {
-      if (item === name) {
-          item = value;
-      }
-  });
-    //newCards[id].exercises.splice(index, 1, value);
+    
+
+    newCards[id].exercises.splice(index, 1, value);
     this.setState({cards: newCards});
     console.log(newCards[id].exercises);
   }
