@@ -54,7 +54,23 @@ class App extends React.Component {
 
   componentDidMount(){
     let data;
-    
+    const url = 'http://localhost:8000';
+
+   // fetch(url)
+ //   .catch(error => console.log('BAD', error))
+  //  .then(response => {console.log('GOOD', response); 
+   // data = response.data; 
+   // console.log(data);
+//  });
+    axios.get('https://catfact.ninja/fact')
+    .then(res => {
+      data = res.data;
+      console.log(data);
+
+    })
+    .catch(err => {
+      console.log(err);
+    })
   }
 
   updateActiveCard(value) {

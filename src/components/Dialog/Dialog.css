@@ -10,6 +10,7 @@
     overflow-y: auto;
     transition: opacity 0.3s;
     z-index: 999;
+    
   }
   
   .modal-wrapper {
@@ -33,6 +34,13 @@
     padding: 40px 20px 20px 20px;
     transform: translateY(-50px);
     transition: opacity 0.3s, transform 0.3s;
+    border: 2px solid var(--shadow-primary-color);
+    border-radius: 16px;
+    width: 310px;
+    height: 186px;
+    background: var(--bg-color);
+    top: 30%;
+    padding: 33px 25px;
   }
   
   .modal-close-button {

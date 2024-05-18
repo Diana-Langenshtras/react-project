@@ -35,5 +35,18 @@
     height: 22px;
 }
 
+.card__dialog-change__text {
+    border: none;
+    border-bottom: 2px solid var(--not-active-color);
+    padding: 7px;
+    background: transparent;
+    width: 100%;
+    font-family: var(--font-family);
+    font-weight: 900;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: var(--not-active-color);
+}
+
 
 
