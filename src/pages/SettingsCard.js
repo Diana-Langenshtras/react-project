@@ -21,7 +21,7 @@ import CardSettings from '../components/CardSettings/CardSettings';
 import { useReducer } from 'react';
 
 
-const SettingsCard = ({cards, deleteExercise, addExercise, addImage}) =>{
+const SettingsCard = ({cards, deleteExercise, addExercise, changeExercise, addImage}) =>{
        // const classes = classNames('', this.props.className);
        const location = useLocation();
        const { state } = location;
@@ -30,13 +30,16 @@ const SettingsCard = ({cards, deleteExercise, addExercise, addImage}) =>{
        
         let file;
 
-       const openDialog = (() => {
-            const dialog = document.querySelector('.card-settings__dialog');
+       const openDialog = ((dialogClass) => {
+            const dialog = document.querySelector(dialogClass);
             dialog.show();
         })
 
         const closeDialog = (() => {
             const dialog = document.querySelector('.card-settings__dialog');
+            document.querySelector(".input-name").value ="";
+            if (document.querySelector(".filename")) document.querySelector(".filename").textContent ="";
+            document.querySelector('.input-name').classList.remove('incorrect'); 
             dialog.close();
         })
 
@@ -57,8 +60,14 @@ const SettingsCard = ({cards, deleteExercise, addExercise, addImage}) =>{
 
         const checkValue = (() => {
             const inputValue = document.querySelector(".input-name").value;
-            if (inputValue.length < 1) document.querySelector('.input-name').classList.add('incorrect');
+            if (inputValue.length < 1) {
+                document.querySelector('.input-name').classList.add('incorrect'); 
+                return false; 
+            } 
+            else return true;
         })
+
+
 
         
 
@@ -66,31 +75,31 @@ const SettingsCard = ({cards, deleteExercise, addExercise, addImage}) =>{
            // <div>{state.from.title}</div>
             <main className="main main-settings-card">
                 <NavLink to="/settings" className="navlink">
-                    <Button className="main__button-back">
+                    <Button className="main__button-back" onClick={() => {closeDialog();}}>
                         <IconBack />
                         <span>Назад</span>
                     </Button>
                 </NavLink>
-                <Button className="section__button" onClick={openDialog}>
+                <Button className="section__button" onClick={() => {openDialog('.card-settings__dialog')}}>
                     <IconAdd />
                 </Button>
 
                 <ul className="section__list">
                 <div className="list__title-wrapper"><h1 className="list__title">{state.from.title}</h1></div>
                 {cards[state.from.id-1].exercises.map((el, index) => (
-                        <CardSettings card={el} onDelete={() => {deleteExercise(state.from.id-1,index)}}/>
+                        <CardSettings key={index} card={el} onDelete={() => {deleteExercise(state.from.id-1,index)}} 
+                        id={state.from.id-1}
+                        onChange={changeExercise}/>
                     ))}
                 </ul>
                 <dialog aria-label="Новое упражнение" className="card-settings__dialog">
                     <div className="card-settings__dialog-wrapper">
-                        <Button className="main__button-back" onClick={() => {closeDialog();}}>
+                        <Button className="main__button-back card-settings__button-back" onClick={() => {closeDialog();}}>
                             <IconBack />
                             <span>Назад</span>
                         </Button>
                         <label for="name" className='visually-hidden'>Введите название (от 1 до 8 символов):</label>
-                        <input type="text" id="name" name="name" require="required"  minlength="2" maxlength="8" size="10" title="ошибка" className="card-settings__dialog-text input-name" placeholder="Введите название"/>
-                        <label for="type" className='visually-hidden'>Введите тип упражнения (от 1 до 8 символов):</label>
-                        <input type="text" id="type" name="type" required minlength="2" maxlength="8" size="10" title="ошибка" className="card-settings__dialog-text" placeholder="Тип упражнения"/>
+                        <input type="text" id="name" name="name" require="required"  minlength="2" maxlength="8" size="10" className="card-settings__dialog-text input-name" placeholder="Введите название"/>
                         <div className="form-wrapper">
                             <form className="form" >
                                 <label className="form__label">
@@ -109,11 +118,14 @@ const SettingsCard = ({cards, deleteExercise, addExercise, addImage}) =>{
                         </div>
                         <Button className="card-settings__dialog-button" onClick={() => {
                          //   closeDialog(); 
-                            checkValue();
-                            addExercise(state.from.id-1, setValue()); 
-                            document.querySelector(".card-settings__dialog-text").value ="";
-                            if (document.querySelector(".filename")) document.querySelector(".filename").textContent ="";
-                            if (files.length > 0) addImage(files[0].name);
+                            if (checkValue()){
+                                addExercise(state.from.id-1, setValue()); 
+                                
+                                if (files.length > 0) addImage(files[0].name, setValue());
+                                closeDialog(); 
+                                
+                            }
+
                         }}>Создать</Button>
                     </div>
                 </dialog>

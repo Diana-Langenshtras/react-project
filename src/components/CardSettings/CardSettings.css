@@ -24,6 +24,10 @@
     color: var(--shadow-primary-color);
 }   
 
+.card-settings__icon-settings {
+    color: var(--shadow-primary-color);
+}
+
 .navlink-settings {
     color: var(--shadow-primary-color);
     height: 22px;

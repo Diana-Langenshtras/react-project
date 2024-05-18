@@ -201,6 +201,10 @@
   width: 296px;
 }
 
+.card-settings__button-back {
+  align-self: start;
+}
+
 .card-settings__dialog-text {
   border: none;
   border-bottom: 2px solid var(--not-active-color);

@@ -85,7 +85,7 @@ export class SettingsPage extends Component {
                 <ul className="section__list">
                     {this.props.cards.map((el, index) => {
                         if(el.id === this.props.activeCard) className = "is-clicked"; else className = "";
-                        return <Card className={className} card={el} onClick={() => {this.props.updateActiveCard(el.id); update(el.id-1); console.log(this.props.activeCard)}} deleteSet={() => {this.props.deleteSet(el.id);}}/>
+                        return <Card key={index} className={className} card={el} onClick={() => {this.props.updateActiveCard(el.id); update(el.id-1); console.log(this.props.activeCard)}} deleteSet={() => {this.props.deleteSet(el.id);}}/>
     })}
                 </ul>
 

@@ -20,11 +20,19 @@ export class HomePage extends Component {
 
     
 
-    const openDialog = ((cards, activeCard) => {
+    const openDialog = ((cards, activeCard, images) => {
         const dialog = document.querySelector('.dialog');
       //  dialog.querySelector('.dialog__image').src = cardData.link;
      //   dialog.querySelector('.dialog__image').alt = cardData.name;
-        dialog.querySelector('.dialog__title').textContent = chooseExercise(cards, activeCard);
+        const exercise = chooseExercise(cards, activeCard);
+        let image = images[0].image;
+        images.map(el =>
+            {
+                if (el.name === exercise) image = el.image;
+            }
+        )
+        dialog.querySelector('.dialog__title').textContent = exercise;
+        dialog.querySelector('.dialog__image').src = image;
         document.querySelector('.main__button-wheel').classList.add('hidden');
         document.querySelector('.main__button-settings').classList.add('hidden');
         document.querySelector('.main__button-back').classList.remove('hidden');
@@ -39,10 +47,10 @@ export class HomePage extends Component {
         dialog.close();
     })
 
-    const buttonIsClicked = ((cards, activeCard) => {
+    const buttonIsClicked = ((cards, activeCard, images) => {
         document.querySelector('.wheel').classList.add('is-clicked'); 
         clearTimeout(timer);
-        timer = setTimeout(() => {document.querySelector('.wheel').classList.remove('is-clicked'); openDialog(cards, activeCard);}, 1000);
+        timer = setTimeout(() => {document.querySelector('.wheel').classList.remove('is-clicked'); openDialog(cards, activeCard, images);}, 1000);
         
     })
 
@@ -61,7 +69,12 @@ export class HomePage extends Component {
                 <span>Назад</span>
                 <IconBack />
             </Button> 
-            <Button className="main__button-wheel" onClick={() => {buttonIsClicked(this.props.cards, this.props.activeCard);}}>Крутить колесо</Button>
+            <Button className="main__button-wheel" onClick={() => {
+               // console.log(this.props.cards); 
+             //   console.log(this.props.activeCard); 
+                console.log(this.props.images);
+                buttonIsClicked(this.props.cards, this.props.activeCard-1, this.props.images);
+                }}>Крутить колесо</Button>
             <NavLink to="/settings" className="navlink">
                 <Button className="main__button-settings">
                     <span>Настройки</span>

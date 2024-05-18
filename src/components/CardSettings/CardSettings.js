@@ -16,17 +16,57 @@ export class CardSettings extends Component {
     const classes = classNames('', this.props.className);
 
     
+    const openDialog = ((dialogClass) => {
+        const dialog = document.querySelector(dialogClass);
+        dialog.show();
+    })
+
+    const closeChangeDialog = (() => {
+        const dialog = document.querySelector('.card-settings__dialog-change');
+        document.querySelector(".card__dialog-change__text").value =""
+   //     if (document.querySelector(".filename")) document.querySelector(".filename").textContent ="";
+    //    document.querySelector('.input-name').classList.remove('incorrect'); 
+        dialog.close();
+    })
+    const change = ((exercise) => {
+            openDialog(".card-settings__dialog-change");
+            document.querySelector(".card__dialog-change__text").value = exercise;
+        })
+
+    const setValue = (() => {
+        let inputValue = document.querySelector(".card__dialog-change__text").value;
+        if (inputValue == '') inputValue = 'Упражнение';
+        return inputValue;
+    })
+    
+
     return (
-        <li className="card-settings">
+        
+        <div className="card-settings-wrapper">
+            <li className="card-settings">
                 <h2 className="card-settings__title">{this.props.card}</h2>
                 <div className="card__icons">
-                    <Link to={{ pathname: '/'}} state={{from: this.props.card}} className="navlink-settings">
-                        <IconSettings />
-                    </Link>
-                    <Button className="card__icon-bin" onClick={this.props.onDelete}><IconBin/></Button>
+                <Button className="card-settings__icon-settings" onClick={() => {
+                    change(this.props.card);
+                    }}>  
+                    <IconSettings />
+                </Button>
+                <Button className="card__icon-bin" onClick={this.props.onDelete}><IconBin/></Button>
                 </div>
-        </li>
-     //   <button className={classes} onClick={onClick}>{children}</button>
+            </li>
+            <dialog aria-label="Изменить название упражнения" className="card__dialog card-settings__dialog-change">
+                <div className="card__dialog-wrapper">
+                    <label for="name" className='visually-hidden'>Введите название (от 1 до 8 символов):</label>
+                    <input type="text" id="name" name="name" required minLength="1" maxlength="8" size="10" className="card__dialog-change__text" placeholder="Введите название"/>
+                    <Button className="card__dialog-button" onClick={() => {
+                     //   console.log(name); 
+                     //   this.props.onChange(this.props.id, name, setValue());               
+                        closeChangeDialog();
+                         }}>Создать</Button>
+                </div>
+            </dialog>
+        </div>
+     
     )
 }
 }

@@ -24,11 +24,29 @@ class App extends React.Component {
     this.deleteSet = this.deleteSet.bind(this);
     this.deleteExercise = this.deleteExercise.bind(this);
     this.addExercise = this.addExercise.bind(this);
+    this.changeExercise = this.changeExercise.bind(this);
     this.addImage = this.addImage.bind(this);
     this.state = {
       cards: cards,
       activeCard: 1,
-      images: [],
+      images: [
+        {
+          name: 'Default',
+          image: '/images/img.png',
+        },
+        {
+          name: 'Бокс',
+          image: '/images/img.png',
+        },
+        {
+          name: 'Бег',
+          image: '/images/img.png',
+        },
+        {
+          name: 'Ходьба',
+          image: '/images/img.png',
+        },
+      ],
     }
   }
 
@@ -56,27 +74,38 @@ class App extends React.Component {
   }
 
   deleteExercise(id, index){
-    console.log("1");
     const newCards = this.state.cards;
-
     newCards[id].exercises.splice(index, 1);
-
     this.setState({cards: newCards});
   }
 
   addExercise(id, value){
-    console.log('1');
-    const newValue = value;
     const newCards = this.state.cards;
-    newCards[id].exercises.push(newValue);
+    newCards[id].exercises.push(value);
     this.setState({cards: newCards});
   }
 
-  addImage(filename){
-    console.log('2');
-    const newImages = this.state.images;
-    newImages.push(filename);
-    this.setState({images: newImages});
+  changeExercise(id, name, value){
+    const newCards = this.state.cards;
+    newCards[id].exercises.map(item => {
+      if (item === name) {
+          item = value;
+      }
+  });
+    //newCards[id].exercises.splice(index, 1, value);
+    this.setState({cards: newCards});
+    console.log(newCards[id].exercises);
+  }
+
+
+  addImage(filename, name){
+      const image = {
+        name: name,
+        image: filename,
+      }
+      const newImages = this.state.images;
+
+      this.setState({images: newImages.concat(image)});
   }
 
   
@@ -91,9 +120,9 @@ class App extends React.Component {
       <BrowserRouter>
 				<Routes>
 					<Route path="/settings" element={<SettingsPage cards={this.state.cards} updateActiveCard={this.updateActiveCard} activeCard={this.state.activeCard} addCard={this.addCard} deleteSet={this.deleteSet} deleteExercise={this.deleteExercise}/>} />
-          <Route path="/settings-card" element={<SettingsCard cards={this.state.cards} deleteExercise={this.deleteExercise} addExercise={this.addExercise} addImage={this.addImage}/>} />
+          <Route path="/settings-card" element={<SettingsCard cards={this.state.cards} deleteExercise={this.deleteExercise} addExercise={this.addExercise} changeExercise={this.changeExercise} addImage={this.addImage}/>} />
           <Route path="/settings-card-add" element={<SettingsCard cards={this.state.cards} deleteExercise={this.deleteExercise} addExercise={this.addExercise}/>} />
-          <Route path="/" element={<HomePage cards={this.state.cards} activeCard={this.state.activeCard}/>} />
+          <Route path="/" element={<HomePage cards={this.state.cards} activeCard={this.state.activeCard} images={this.state.images}/>} />
           
 				</Routes>
 			</BrowserRouter>
