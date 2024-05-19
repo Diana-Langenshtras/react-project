@@ -167,7 +167,7 @@ class App extends React.Component {
 				<Routes>
 					<Route path="/settings" element={<SettingsPage cards={this.state.cards} gameURL={this.state.gameURL} updateActiveCard={this.updateActiveCard} activeCard={this.state.activeCard} addCard={this.addCard} deleteSet={this.deleteSet} deleteExercise={this.deleteExercise}/>} />
           <Route path="/settings-card" element={<SettingsCard cards={this.state.cards} deleteExercise={this.deleteExercise} addExercise={this.addExercise} changeExercise={this.changeExercise} addImage={this.addImage}/>} />
-          <Route path="/react-project" element={<HomePage cards={this.state.cards} activeCard={this.state.activeCard} images={this.state.images}/>} />
+          <Route path="/" element={<HomePage cards={this.state.cards} activeCard={this.state.activeCard} images={this.state.images}/>} />
           
 				</Routes>
 			</BrowserRouter>
