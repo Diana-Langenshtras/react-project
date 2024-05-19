@@ -42,6 +42,10 @@
   text-decoration: none;
 }
 
+.navlink:focus {
+  outline: none;
+}
+
 .invite {
   width: 100%;
   display: flex;
@@ -181,7 +185,9 @@
   color: var(--not-active-color);
 }
 
-
+.card__dialog-text:focus {
+  outline-color: var(--primary-color);
+}
 
 .card-settings__dialog {
   border: none;
@@ -216,6 +222,10 @@
   font-size: 20px;
   text-transform: uppercase;
   color: var(--not-active-color);
+}
+
+.card-settings__dialog-text {
+  outline-color: var(--primary-color);
 }
 
 input::-moz-placeholder { color: var(--not-active-color); }

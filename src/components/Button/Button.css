@@ -58,7 +58,7 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 143%;
-    text-transform: lowercase;
+    text-transform: none;
 }
 
 .invite__button-text {
@@ -91,7 +91,7 @@
 
 .card__dialog-button {
     background-color: var(--primary-color);
-    border-bottom: 4px solid var(--shadow-primary-color);
+    box-shadow: 0 4px 0 0 var(--shadow-primary-color);
     border-radius: 17px;
     padding: 13px 16px;
 }
@@ -102,6 +102,31 @@
     background-color: var(--primary-color);
     box-shadow: 0 4px 0 0 var(--shadow-primary-color);
   }
+
+.button-primary:hover {
+    background-color: var(--secondary-color);
+    box-shadow: 0 4px 0 0 var(--shadow-secondary-color);
+}
+
+.button-primary:focus {
+    background-color: var(--text-color);
+    box-shadow: 0 4px 0 0 #9f9f9f;
+    color:  var(--primary-color);
+    outline: none;
+}
+
+.button-secondary:hover {
+    background-color: var(--primary-color);
+    box-shadow: 0 4px 0 0 var(--shadow-primary-color);
+}
+
+.button-secondary:focus {
+    background-color: var(--text-color);
+    box-shadow: 0 4px 0 0 #9f9f9f;
+    color:  var(--primary-color);
+    outline: none;
+}
+
 
 @media (width >= 1024px) {
     /*.main__button-settings {

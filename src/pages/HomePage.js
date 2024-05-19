@@ -65,18 +65,18 @@ export class HomePage extends Component {
     return (
 		<main className="main main-home">
             <Wheel />
-            <Button className="main__button-back hidden" onClick={closeDialog}>
+            <Button className="main__button-back hidden button-primary" onClick={closeDialog}>
                 <span>Назад</span>
                 <IconBack />
             </Button> 
-            <Button className="main__button-wheel" onClick={() => {
+            <Button className="main__button-wheel button-primary" onClick={() => {
                // console.log(this.props.cards); 
              //   console.log(this.props.activeCard); 
                 console.log(this.props.images);
                 buttonIsClicked(this.props.cards, this.props.activeCard-1, this.props.images);
                 }}>Крутить колесо</Button>
             <NavLink to="/settings" className="navlink">
-                <Button className="main__button-settings">
+                <Button className="main__button-settings button-secondary">
                     <span>Настройки</span>
                     <IconSettings />
                 </Button>

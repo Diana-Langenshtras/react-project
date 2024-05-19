@@ -75,7 +75,7 @@ const SettingsCard = ({cards, deleteExercise, addExercise, changeExercise, addIm
            // <div>{state.from.title}</div>
             <main className="main main-settings-card">
                 <NavLink to="/settings" className="navlink">
-                    <Button className="main__button-back" onClick={() => {closeDialog();}}>
+                    <Button className="main__button-back button-primary" onClick={() => {closeDialog();}}>
                         <IconBack />
                         <span>Назад</span>
                     </Button>
@@ -94,7 +94,7 @@ const SettingsCard = ({cards, deleteExercise, addExercise, changeExercise, addIm
                 </ul>
                 <dialog aria-label="Новое упражнение" className="card-settings__dialog">
                     <div className="card-settings__dialog-wrapper">
-                        <Button className="main__button-back card-settings__button-back" onClick={() => {closeDialog();}}>
+                        <Button className="main__button-back card-settings__button-back button-primary" onClick={() => {closeDialog();}}>
                             <IconBack />
                             <span>Назад</span>
                         </Button>
@@ -116,7 +116,7 @@ const SettingsCard = ({cards, deleteExercise, addExercise, changeExercise, addIm
                             </form>
                             
                         </div>
-                        <Button className="card-settings__dialog-button" onClick={() => {
+                        <Button className="card-settings__dialog-button button-primary" onClick={() => {
                          //   closeDialog(); 
                             if (checkValue()){
                                 addExercise(state.from.id-1, setValue()); 

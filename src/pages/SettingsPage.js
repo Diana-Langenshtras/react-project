@@ -27,7 +27,13 @@ export class SettingsPage extends Component {
 
     const copyTextToClipboard = async (text) => {
         try {
-          await navigator.clipboard.writeText(text);
+          await navigator.clipboard.writeText(text)
+          .then(() => {
+            document.querySelector(".invite__button-text").textContent = "Скопировано!";
+          })
+          .catch(err => {
+            console.error('ОшибкО: ', err);
+          });
           console.log('Текст успешно скопирован в буфер обмена!');
         } catch (err) {
           console.error('Ошибка:', err);
@@ -64,7 +70,7 @@ export class SettingsPage extends Component {
     return (
 		<main className="main main-settings">
             <NavLink to="/" className="navlink">
-                <Button className="main__button-back">
+                <Button className="main__button-back button-primary">
                     <IconBack />
                     <span>Назад</span>
                 </Button>
@@ -72,13 +78,13 @@ export class SettingsPage extends Component {
             <div className="invite">
                 <p className="invite__text">Пригласить участников:</p>
                 <Button className="invite__button" onClick={() => copyTextToClipboard(document.querySelector('.invite__button-text').textContent)}>
-                    <span className="invite__button-text">https://doka.guide/css/</span>
+                    <span className="invite__button-text">{this.props.gameURL}</span>
                     <IconCopy />
                 </Button>
             </div>
             <section className="section section-settings">
                 <p className="section__title">ваши наборы</p>
-                <Button className="section__button" onClick={openDialog}>
+                <Button className="section__button button-secondary" onClick={openDialog}>
                     {console.log(this.props.cards)}
                     <IconAdd />
                 </Button>
@@ -94,7 +100,7 @@ export class SettingsPage extends Component {
             <div className="card__dialog-wrapper">
                 <label for="name" className='visually-hidden'>Введите название (от 1 до 8 символов):</label>
                 <input type="text" id="name" name="name" required minlength="1" maxlength="8" size="10" className="card__dialog-text" placeholder="Введите название"/>
-                <Button className="card__dialog-button" onClick={() => {closeDialog(); this.props.addCard(setValue()); document.querySelector(".card__dialog-text").value =""}}>Создать</Button>
+                <Button className="card__dialog-button button-primary" onClick={() => {closeDialog(); this.props.addCard(setValue()); document.querySelector(".card__dialog-text").value =""}}>Создать</Button>
             </div>
             </dialog>
 		</main>

@@ -29,6 +29,7 @@ class App extends React.Component {
     this.changeExercise = this.changeExercise.bind(this);
     this.addImage = this.addImage.bind(this);
     this.state = {
+      gameURL: "",
       cards: cards,
       activeCard: 1,
       images: [
@@ -56,13 +57,7 @@ class App extends React.Component {
     let data;
     const url = 'http://localhost:8000';
 
-   // fetch(url)
- //   .catch(error => console.log('BAD', error))
-  //  .then(response => {console.log('GOOD', response); 
-   // data = response.data; 
-   // console.log(data);
-//  });
-    axios.get('https://catfact.ninja/fact')
+    axios.get('http://localhost:8000/card_sets_json')
     .then(res => {
       data = res.data;
       console.log(data);
@@ -82,7 +77,7 @@ class App extends React.Component {
       id: this.state.cards.length+1,
       title: value,
       exercises: [],
-  };
+    };
     const newCards = this.state.cards;
     this.setState({cards: newCards.concat(newArray)});
   }
@@ -110,26 +105,30 @@ class App extends React.Component {
 
   changeExercise(id, index, value){
     const newCards = this.state.cards;
-    
-
     newCards[id].exercises.splice(index, 1, value);
     this.setState({cards: newCards});
     console.log(newCards[id].exercises);
   }
 
-
   addImage(filename, name){
+    let flag = true;
       const image = {
         name: name,
         image: filename,
       }
       const newImages = this.state.images;
-
-      this.setState({images: newImages.concat(image)});
+      newImages.map(el =>
+        {
+          if (el.name === name){
+            flag = false;
+            el.image = filename;
+            return console.log("Значение обновлено");
+        }
+      }
+      )
+      if (flag) this.setState({images: newImages.concat(image)}); 
+      else this.setState({images: newImages}); 
   }
-
-  
-
 
   render() {
 
@@ -139,9 +138,8 @@ class App extends React.Component {
     <div className="App">
       <BrowserRouter>
 				<Routes>
-					<Route path="/settings" element={<SettingsPage cards={this.state.cards} updateActiveCard={this.updateActiveCard} activeCard={this.state.activeCard} addCard={this.addCard} deleteSet={this.deleteSet} deleteExercise={this.deleteExercise}/>} />
+					<Route path="/settings" element={<SettingsPage cards={this.state.cards} gameURL={this.state.gameURL} updateActiveCard={this.updateActiveCard} activeCard={this.state.activeCard} addCard={this.addCard} deleteSet={this.deleteSet} deleteExercise={this.deleteExercise}/>} />
           <Route path="/settings-card" element={<SettingsCard cards={this.state.cards} deleteExercise={this.deleteExercise} addExercise={this.addExercise} changeExercise={this.changeExercise} addImage={this.addImage}/>} />
-          <Route path="/settings-card-add" element={<SettingsCard cards={this.state.cards} deleteExercise={this.deleteExercise} addExercise={this.addExercise}/>} />
           <Route path="/" element={<HomePage cards={this.state.cards} activeCard={this.state.activeCard} images={this.state.images}/>} />
           
 				</Routes>
