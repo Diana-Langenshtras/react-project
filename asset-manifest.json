@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.34ac69da.css",
+    "main.js": "/static/js/main.3f14d2fc.js",
+    "static/js/453.ed3810f9.chunk.js": "/static/js/453.ed3810f9.chunk.js",
+    "static/media/Inter-Variable.woff2": "/static/media/Inter-Variable.b2b32f7882156658c072.woff2",
+    "static/media/Rubik-Black.ttf": "/static/media/Rubik-Black.a41b3ae4e67200950946.ttf",
+    "static/media/wheel.svg": "/static/media/wheel.71a873020a4890bff62045a1c1bdec02.svg",
+    "static/media/IconUpload.svg": "/static/media/IconUpload.61b8558511316f85b1dec974dfd7d2d9.svg",
+    "static/media/IconSettings.svg": "/static/media/IconSettings.15649e9fe05d01d60eeba7319057ecbf.svg",
+    "index.html": "/index.html",
+    "static/media/Icon.svg": "/static/media/Icon.dfa81d0d08ab78a993e383993f9d038b.svg",
+    "static/media/IconCopy.svg": "/static/media/IconCopy.887241a02ebe29c6f7e6cffd5b3b1c5f.svg",
+    "static/media/IconBin.svg": "/static/media/IconBin.20062e0b14f4d71e5490141217e49910.svg",
+    "static/media/arrow-up-left.svg": "/static/media/arrow-up-left.f49114a52dc7f361259b709c2a1edc10.svg",
+    "main.34ac69da.css.map": "/static/css/main.34ac69da.css.map",
+    "main.3f14d2fc.js.map": "/static/js/main.3f14d2fc.js.map",
+    "453.ed3810f9.chunk.js.map": "/static/js/453.ed3810f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.34ac69da.css",
+    "static/js/main.3f14d2fc.js"
+  ]
+}
