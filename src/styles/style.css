@@ -286,3 +286,26 @@ input::-webkit-input-placeholder { color: var(--not-active-color); }
   height: 175px;
 }
 
+.overlay {
+  position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    transition: opacity 0.3s;
+    z-index: 998;
+}
+
+.card__dialog-new-wrapper {
+  position: relative;
+  border: 2px solid var(--shadow-primary-color);
+  border-radius: 16px;
+  width: 310px;
+  height: 186px;
+  background: var(--bg-color);
+  top: 30%;
+
+  padding: 33px 25px;
+  z-index: 999;
+}

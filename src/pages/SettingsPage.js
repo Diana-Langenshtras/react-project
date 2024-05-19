@@ -84,7 +84,7 @@ export class SettingsPage extends Component {
             </div>
             <section className="section section-settings">
                 <p className="section__title">ваши наборы</p>
-                <Button className="section__button button-secondary" onClick={openDialog}>
+                <Button className="section__button" onClick={openDialog}>
                     {console.log(this.props.cards)}
                     <IconAdd />
                 </Button>
@@ -97,10 +97,12 @@ export class SettingsPage extends Component {
 
             </section>
             <dialog aria-label="Новая карта" className="card__dialog">
-            <div className="card__dialog-wrapper">
-                <label for="name" className='visually-hidden'>Введите название (от 1 до 8 символов):</label>
-                <input type="text" id="name" name="name" required minlength="1" maxlength="8" size="10" className="card__dialog-text" placeholder="Введите название"/>
-                <Button className="card__dialog-button button-primary" onClick={() => {closeDialog(); this.props.addCard(setValue()); document.querySelector(".card__dialog-text").value =""}}>Создать</Button>
+            <div className='overlay'>
+                <div className="card__dialog-wrapper card__dialog-new-wrapper">
+                    <label for="name" className='visually-hidden'>Введите название (от 1 до 8 символов):</label>
+                    <input type="text" id="name" name="name" required minlength="1" maxlength="8" size="10" className="card__dialog-text" placeholder="Введите название"/>
+                    <Button className="card__dialog-button button-primary" onClick={() => {closeDialog(); this.props.addCard(setValue()); document.querySelector(".card__dialog-text").value =""}}>Создать</Button>
+                </div>
             </div>
             </dialog>
 		</main>
