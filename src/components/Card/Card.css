@@ -9,7 +9,6 @@
 .card {
     border: 1px solid var(--shadow-primary-color);
     width: 100%;
-    max-width: 297px;
 }
 
 .card__title {

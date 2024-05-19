@@ -55,17 +55,44 @@ class App extends React.Component {
 
   componentDidMount(){
     let data;
-    const url = 'http://localhost:8000';
 
     axios.get('http://localhost:8000/card_sets_json')
     .then(res => {
       data = res.data;
       console.log(data);
-
+      this.setState({cards: this.state.cards.concat(data)});
+      console.log(this.state.cards);
     })
     .catch(err => {
       console.log(err);
     })
+  }
+
+  componentDidUpdate(prevProps) {
+    // Популярный пример (не забудьте сравнить пропсы):
+   const fileInput = document.querySelector(".filename__input"); // получаем элемент input для загрузки файла
+   const file = fileInput.files[0]; // получаем выбранный файл
+   
+    const formData = new FormData(); // создаем объект FormData для передачи файла
+    
+    formData.append('name', this.state.images[this.state.images.length-1].name);
+    formData.append('image',file); // добавляем файл в объект FormData
+  //  console.log(this.state.images[this.state.images.length-1].name);
+   // console.log(file);
+    console.log(...formData)
+    //xhr.open('POST', '/upload'); // указываем метод и URL сервера, куда будет отправлен файл
+    //xhr.send(formData); // отправляем запрос на сервер с помощью метода send()
+      axios.post('http://localhost:8000', {
+        cards: this.state.cards,
+        image: formData,
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    
   }
 
   updateActiveCard(value) {
@@ -75,7 +102,7 @@ class App extends React.Component {
   addCard(value){
     const newArray = {
       id: this.state.cards.length+1,
-      title: value,
+      name: value,
       exercises: [],
     };
     const newCards = this.state.cards;
@@ -99,7 +126,7 @@ class App extends React.Component {
 
   addExercise(id, value){
     const newCards = this.state.cards;
-    newCards[id].exercises.push(value);
+    newCards[id].exercises.push(value.toLowerCase());
     this.setState({cards: newCards});
   }
 

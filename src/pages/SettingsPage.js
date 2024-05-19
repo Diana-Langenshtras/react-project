@@ -85,7 +85,6 @@ export class SettingsPage extends Component {
             <section className="section section-settings">
                 <p className="section__title">ваши наборы</p>
                 <Button className="section__button" onClick={openDialog}>
-                    {console.log(this.props.cards)}
                     <IconAdd />
                 </Button>
                 <ul className="section__list">

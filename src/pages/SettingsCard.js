@@ -85,7 +85,7 @@ const SettingsCard = ({cards, deleteExercise, addExercise, changeExercise, addIm
                 </Button>
 
                 <ul className="section__list">
-                <div className="list__title-wrapper"><h1 className="list__title">{state.from.title}</h1></div>
+                <div className="list__title-wrapper"><h1 className="list__title">{state.from.name}</h1></div>
                 {cards[state.from.id-1].exercises.map((el, index) => (
                         <CardSettings key={index} card={el} onDelete={() => {deleteExercise(state.from.id-1,index)}} 
                         id={state.from.id-1} cardIndex={index}
@@ -104,7 +104,7 @@ const SettingsCard = ({cards, deleteExercise, addExercise, changeExercise, addIm
                             <form className="form" >
                                 <label className="form__label">
                                     <IconUpload/>
-                                    <input type="file" id="real-input" className="form__input" accept="image/*,.pdf" onChange={handleChange}/>
+                                    <input type="file" id="real-input" className="form__input filename__input" accept="image/*,.pdf" onChange={handleChange}/>
                                 </label>
                                 {files.length > 0 && (
                                         
