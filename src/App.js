@@ -56,12 +56,23 @@ class App extends React.Component {
   componentDidMount(){
     let data;
 
+
     axios.get('http://localhost:8000/card_sets_json')
     .then(res => {
       data = res.data;
-      console.log(data);
-      this.setState({cards: this.state.cards.concat(data)});
-      console.log(this.state.cards);
+      console.log(data.cards);
+  /*    let i = this.state.cards.length+1;
+      const newCards = this.state.cards;
+      data.cards.map(card => {
+        card.id = i; i++;
+        newCards.push(card);
+      //  this.setState({cards: this.state.cards.concat(card)});
+      })
+      console.log(newCards);*/
+       
+      this.setState({cards: data.cards});
+      this.setState({images: data.images});
+      console.log(this.state.images);
     })
     .catch(err => {
       console.log(err);
@@ -71,18 +82,13 @@ class App extends React.Component {
   componentDidUpdate(prevProps) {
     // Популярный пример (не забудьте сравнить пропсы):
    const fileInput = document.querySelector(".filename__input"); // получаем элемент input для загрузки файла
-   const file = fileInput.files[0]; // получаем выбранный файл
-   
+   if (fileInput && fileInput.files[0]) {
+    const file = fileInput.files[0];
     const formData = new FormData(); // создаем объект FormData для передачи файла
     
     formData.append('name', this.state.images[this.state.images.length-1].name);
     formData.append('image',file); // добавляем файл в объект FormData
-  //  console.log(this.state.images[this.state.images.length-1].name);
-   // console.log(file);
-    console.log(...formData)
-    //xhr.open('POST', '/upload'); // указываем метод и URL сервера, куда будет отправлен файл
-    //xhr.send(formData); // отправляем запрос на сервер с помощью метода send()
-      axios.post('http://localhost:8000', {
+    axios.post('http://localhost:8000/card_sets_json', {
         cards: this.state.cards,
         image: formData,
       })
@@ -92,6 +98,7 @@ class App extends React.Component {
       .catch(function (error) {
         console.log(error);
       });
+  } // получаем выбранный файл
     
   }
 
@@ -99,11 +106,11 @@ class App extends React.Component {
     this.setState({activeCard: value});
   }
 
-  addCard(value){
+  addCard(name, exercises){
     const newArray = {
       id: this.state.cards.length+1,
-      name: value,
-      exercises: [],
+      name: name,
+      exercises: exercises,
     };
     const newCards = this.state.cards;
     this.setState({cards: newCards.concat(newArray)});
@@ -132,7 +139,7 @@ class App extends React.Component {
 
   changeExercise(id, index, value){
     const newCards = this.state.cards;
-    newCards[id].exercises.splice(index, 1, value);
+    newCards[id].exercises.splice(index, 1, value.toLowerCase());
     this.setState({cards: newCards});
     console.log(newCards[id].exercises);
   }
