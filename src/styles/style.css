@@ -340,3 +340,20 @@ input::-webkit-input-placeholder { color: var(--not-active-color); }
     min-height: calc(91px * 1.3);
   }
 }
+
+@media (width >= 1920px) {
+  .dialog {
+    width: 631px;
+    height: 590px;
+    padding: 78px;
+  }
+
+  .dialog-wrapper {
+    gap: 38px;
+  }
+
+  .dialog__image{
+    min-width: 281px;
+    min-height: 232px;
+  }
+}
