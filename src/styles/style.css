@@ -153,6 +153,11 @@
   color: var(--primary-color);
 }
 
+.dialog__image {
+  max-width: 150px;
+  max-height: 120px;
+}
+
 .card__dialog{
   border: 2px solid var(--shadow-primary-color);
   border-radius: 16px;
