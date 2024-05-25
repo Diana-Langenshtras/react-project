@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="233" height="280" class="wheel">
+<svg xmlns="http://www.w3.org/2000/svg" class="wheel" viewBox="0 0 233 280" width="233" height="280">
 <symbol id="wheel" 
     fill="none"
     stroke="currentColor"
   />
-<g clip-path="url(#a)">
+<g clip-path="url(#a)" class="wheel-g">
 
 <g class="wheel-legs">
 <path fill="#5ACC65" d="m186.861 156.495 6.805-1.609a2.694 2.694 0 0 1 2.044.333c.61.379 1.045.986 1.21 1.688l27.448 117.151c.164.702.043 1.44-.335 2.052a2.702 2.702 0 0 1-1.68 1.214l-6.798 1.603a2.697 2.697 0 0 1-2.044-.334 2.719 2.719 0 0 1-1.21-1.687l-27.468-117.142a2.713 2.713 0 0 1 .338-2.057 2.696 2.696 0 0 1 1.69-1.212Z"/>

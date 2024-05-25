@@ -3,8 +3,6 @@ import './Wheel.css'
 
 export default function Wheel() {
     return (
-        <div className='wheel'>
-            <Logo />
-        </div>
+        <Logo />
     )
 }
