@@ -4,13 +4,6 @@
     transform-box: fill-box;
 }
 
-.wheel-wrapper {
-  width: 233px;
-  height: 280px;
-  display: flex;
-  flex-direction: column;
-}
-
 .wheel {
   width: 233px;
   height: 280px;
@@ -28,11 +21,8 @@
   }
 
   @media (width >= 1024px) {
-    .wheel.is-clicked .wheel-circle {
-      width: 500px;
-    }
     .wheel {
-      width: calc(233px * 1.3);
-      height:  calc(280px * 1.3);
+      width: 580px;
+      height:  697px;
     }
   }
