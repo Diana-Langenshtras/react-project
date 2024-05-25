@@ -25,6 +25,7 @@ export class HomePage extends Component {
       //  dialog.querySelector('.dialog__image').src = cardData.link;
      //   dialog.querySelector('.dialog__image').alt = cardData.name;
         const exercise = chooseExercise(cards, activeCard);
+        console.log(exercise);
         let image = images[0].image;
         images.map(el =>
             {
@@ -59,7 +60,7 @@ export class HomePage extends Component {
       }
 
     function chooseExercise(cards, activeCard){
-        return cards[activeCard].exercises[getRandomInt(cards[activeCard].exercises.length-1)];
+        return cards[activeCard].exercises[getRandomInt(cards[activeCard].exercises.length)];
     }
 
     return (
